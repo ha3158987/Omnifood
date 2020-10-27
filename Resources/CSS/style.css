@@ -1,3 +1,7 @@
+/*
+orange color: #e67e22
+*/
+
 * {
   /*Jonas가 항상 가장 먼저 넣는 것들*/
   margin: 0;
@@ -14,9 +18,37 @@ html {
   text-rendering: optimizeLegibility; /*텍스트 디스플레이를 최적화하는 메소드*/
 }
 
+.clearfix {
+  /*float 효과 해제하기*/
+  zoom: 1;
+}
+.clearfix:after {
+  /*실제 float이 적용해제되어야 하는 요소들. clearfix 클래스를 가진 요소의 "다음 요소(하위 요소)"에 다음 프로퍼티들이 적용된다.*/
+  content: ".";
+  clear: both;
+  display: block;
+  height: 0;
+  visibility: hidden;
+}
+
 /*-------------------------------*/
 /*Reusable components*/
 /*-------------------------------*/
+
+.row {
+  max-width: 1140px;
+  margin: 0 auto;
+  /* 0 auto 0 auto 대신 위와 같이 달면 위&아래가 0, 오르쪽&왼쪽이 auto로 설정이 된다. */
+}
+
+section {
+  padding: 80px 0;
+}
+
+.box {
+  /*paragraph들 사이의 간격 조절*/
+  padding: 1%;
+}
 
 .hero-text-box {
   position: absolute;
@@ -31,16 +63,72 @@ html {
 /*HEADINGS*/
 /*-------------------------------*/
 
+h1,
+h2,
+h3 {
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
 h1 {
   margin-top: 0;
   margin-bottom: 20px;
   color: #fff;
-  font-size: 240%;
-  /* 위에 html에서 font-size를 20px로 설정해두었기 때문에 그걸 기준삼아서 %가 조절이 됨*/
-  font-weight: 300;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  font-size: 240%; /* 위에 html에서 font-size를 20px로 설정해두었기 때문에 그걸 기준삼아서 %가 조절이 됨*/
   word-spacing: 4px;
+  letter-spacing: 1px;
+}
+
+h2 {
+  font-size: 180%;
+  word-spacing: 2px;
+  text-align: center;
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+}
+
+h3 {
+  font-size: 110%;
+  margin-bottom: 15px;
+}
+
+h2::after {
+  /*오렌지 border추가하는 영역*/
+  /*h2와 텍스트 사이에 추가. css만 이용해서 content추가하는 법*/
+  display: block;
+  height: 2px;
+  background-color: #e67e22;
+  content: " ";
+  width: 100px;
+  margin: 0 auto; /*센터링하기*/
+  margin-top: 30px; /*h2랑 line사이 간격*/
+}
+
+/*-------------------------------*/
+/*PARAGRAPHS*/
+/*-------------------------------*/
+
+.long-copy {
+  line-height: 145%; /*120 ~ 145% 권장*/
+  width: 70%;
+  margin-left: 15%; /*total이 100%이기 떄문에 100-70인 30을 15%씩 나누면 양쪽에 15%씩 margin이 생긴다.*/
+}
+
+.box p {
+  /*부모태그 div, 자식태그 p*/
+  font-size: 90%;
+  line-height: 145%;
+}
+
+/*-------------------------------*/
+/*ICON*/
+/*-------------------------------*/
+
+.icon-big {
+  font-size: 350%;
+  display: block;
+  color: #e67e22; /*font이기 때문에 색상도 바꿀 수 있다*/
+  margin-bottom: 10px;
 }
 
 /*-------------------------------*/
@@ -55,23 +143,21 @@ h1 {
   font-weight: 300;
   text-decoration: none;
   border-radius: 200px;
-  transition: background-color 0.2s;
-  border: 0.2s;
-  color: 0.2s;
+  transition: background-color 0.2s, border 0.2s, color 0.2s;
   /*링크(버튼)에 마우스를 갖다대면 바로 변하는 것이 아니라 0.2s(초) 이후에 변함*/
 }
 
 .btn-full:link,
 .btn-full:visited {
   background-color: #e67e22;
-  border: 1px solid #e67e22;
+  border: 1px solid #e67e22; /*ghost버튼이랑 똑같이 설정*/
   color: #fff;
   margin-right: 15px;
 }
 
 .btn-ghost:link,
 .btn-ghost:visited {
-  border: 1px solid #e67e22;
+  border: 1px solid #e67e22; /*엘리먼트의 height/width는 content + height/width를 한 결과. 따라서 두 버튼에 똑같이 border를 설정해줘야한다.*/
   color: #e67e22;
 }
 
@@ -95,17 +181,10 @@ h1 {
 /*HEADER*/
 /*-------------------------------*/
 
-.row {
-  max-width: 1140px;
-  margin: 0 auto;
-  /* 0 auto 0 auto 대신 위와 같이 달면 위&아래가 0, 오르쪽&왼쪽이 auto로 설정이 된다. */
-}
-
 header {
+  /* 백그라운드 이미지 추가하는 방법, linear-gradient: 바탕이미지 위에다가 색깔 입히는 방법/위에 덮히는 색 투명도 조절하기*/
   background-image: linear-gradient(rgba(0, 0, 0, 0.835), rgba(0, 0, 0, 0.603)),
     url(images/hero.jpg);
-  /*linear-gradient: 바탕이미지 위에다가 색깔 입히는 방법/위에 덮히는 색 투명도 조절하기*/
-  /* 백그라운드 이미지 추가하는 방법 */
   background-size: cover;
   background-position: center;
   height: 100vh;
@@ -120,7 +199,7 @@ header {
 
 .main-nav {
   float: right;
-  list-style: none;
+  list-style: none; /*bullet-point 없애기*/
   margin-top: 55px;
 }
 
@@ -128,6 +207,7 @@ header {
   display: inline-block;
   /*side-by-side 될 수 있게*/
   margin-left: 40px;
+  font-size: 90%;
 }
 
 .main-nav li a:link,
@@ -136,7 +216,6 @@ header {
   color: #fff;
   text-decoration: none;
   text-transform: uppercase;
-  font-size: 90%;
   border-bottom: 2px solid transparent;
   /*마우스를 갖다대기 전까지 보이지 않게 하는 효과*/
   transition: border-bottom 0.2s;
@@ -145,4 +224,107 @@ header {
 .main-nav li a:hover,
 .main-nav li a:active {
   border-bottom: 2px solid #e67e22;
+}
+
+/*-------------------------------*/
+/*FEATURES*/
+/*-------------------------------*/
+
+.section-features .long-copy {
+  margin-bottom: 40px;
+}
+
+/*-------------------------------*/
+/*MEALS*/
+/*-------------------------------*/
+
+.section-meals {
+  padding: 0; /*기본적으로 section은 padding을 가지고 생기기 때문에 padding 옵션을 정해줘야함.*/
+}
+
+.meals-showcase {
+  list-style: none; /*bullet point 없애기*/
+  width: 100%;
+}
+
+.meals-showcase li {
+  display: block; /*여기서는 줄바꿈이 되지 않음. inline과 동일하게 보이지만 적용하지 못하는 프로퍼티들 때문에 block으로 쓰는것?*/
+  float: left; /*side-by-side로 만들어주기*/
+  width: 25%; /*엘리먼트가 4개이고 브라우저의 full-width가 100%이기 때문에*/
+}
+
+.meal-photo {
+  width: 100%; /* 이건 figure 태그. parent 태그인 li태그와 width를 완전히 똑같이 갖는다는 뜻이 된다.*/
+  margin: 0;
+  overflow: hidden; /*자식요소인 img태그가 부모요소 사이즈보다 커지는 걸 숨겨준다.*/
+  background-color: #000; /* black으로 불투명색 지정 */
+}
+
+.meal-photo img {
+  opacity: 0.7; /*70% */
+  width: 100%; /*이미지의 넓이가 정확히 이미지를 담고있는 컨테이너와 똑같은 넓이가 되는 것*/
+  height: auto;
+  transform: scale(1.15); /*이미지가 100%를 넘어 115%로 커지는 것*/
+  transition: transform 1s, opacity 0.5s; /* hover와 번갈아서 바뀌는 transform 효과가 0.5초에 걸쳐서 보다 부드럽게 나타나도록 해줌 */
+}
+
+.meal-photo img:hover {
+  transform: scale(
+    1.03
+  ); /*이미지의 크기를 다시 100%로 돌려줌 & 1로 했을 때 보이던 이미지 밑면 흰색 라인이 1.03하니깐 사라짐*/
+  opacity: 1; /*불투명도를 다시 100%로 돌려줌. 선명한 이미지 back*/
+}
+
+/*-------------------------------*/
+/*HOW IT WORKS*/
+/*-------------------------------*/
+
+.section-steps {
+  background-color: #f4f4f4;
+}
+
+.steps-box:first-child {
+  /*left box(아이폰 이미지) 선택*/
+  text-align: right; /*실질적으로 "텍스트"는 없지만 텍스트에만 적용되는 것이 아니므로 가능한다.*/
+  padding-right: 3%; /* responsive design에 fluid한 프로퍼티가 되려면 %로 기재 */
+  margin-top: 30px; /*h2랑의 간격을 조절*/
+}
+
+.steps-box:last-child {
+  /*right box(steps) 선택*/
+  padding-left: 3%;
+  margin-top: 70px; /*h2랑의 간격을 조절*/
+}
+
+.app-screen {
+  width: 40%; /*박스(컨테이너)의 40% 크기*/
+}
+
+.works-step {
+  margin-bottom: 50px; /*steps들 사이의 간격*/
+}
+
+.works-step:last-of-type {
+  margin-bottom: 80px;
+}
+
+.works-step div {
+  /*steps 번호 선택자*/
+  color: #e67e22;
+  border: 2px solid #e67e22; /*숫자를 둘러싸는 border 만들기*/
+  border-radius: 50%;
+  height: 55px; /*지름이 같게 하려면 높이와 넓이의 크기를 같게!*/
+  width: 55px;
+  display: inline-block; /*text랑 side-by-side를 만들어주기 위해*/
+  text-align: center; /*숫자를 원의 가운데로 정렬하기*/
+  padding: 5px; /*원의 위쪽에 쏠려있는 숫자를 원 한 가운데로 내리기*/
+  float: left; /*넘버링을 text의 왼쪽에 넣기*/
+  font-size: 150%;
+  margin-right: 25px;
+}
+
+.btn-app img {
+  height: 50px;
+  width: auto;
+  margin-right: 10px;
 }
