@@ -131,6 +131,38 @@ h2::after {
   margin-bottom: 10px;
 }
 
+.icon-small {
+  display: inline-block; /*width 프로퍼티를 쓸 수 있게 바꿔주기*/
+  width: 30px;
+  text-align: center;
+  color: #e67e22;
+  font-size: 120%;
+  margin-right: 10px;
+
+  /*secrets to align text & icons*/
+  line-height: 120%;
+  vertical-align: middle;
+  margin-top: -4px; /*양수margin이 공간을 더해준다면, 음수margin은 공간을 줄어들게하는 효과. 숫자가 커질수록 아이콘은 위로 움직인다.*/
+}
+
+/*-------------------------------*/
+/*LINKS*/
+/*-------------------------------*/
+a:link,
+a:visited {
+  color: #e67e22;
+  text-decoration: none;
+  padding-bottom: 1px;
+  border-bottom: 1px solid #e67e22;
+  transition: border-bottom 0.2s, color 0.2s;
+}
+
+a:hover,
+a:active {
+  color: #555;
+  border-bottom: 1px solid transparent; /* transparent 마우스를 올리면 언더라인이 사라지는 효과 */
+}
+
 /*-------------------------------*/
 /*BUTTONS*/
 /*-------------------------------*/
@@ -323,8 +355,30 @@ header {
   margin-right: 25px;
 }
 
+.btn-app:link,
+.btn-app:visited {
+  border: 0;
+}
+
 .btn-app img {
   height: 50px;
   width: auto;
   margin-right: 10px;
+}
+
+/*-------------------------------*/
+/*CITIES*/
+/*-------------------------------*/
+
+.box img {
+  /*img는 inline*/
+  /*위 섹션에서도 box클래스를 사용했으나 img를 내부에 가진 box클래스는 이번 섹션이 처음이기 때문에 사용가능*/
+  width: 100%;
+  height: auto;
+  margin-bottom: 15px;
+}
+
+.city-feature {
+  /*feature들 사이의 간격을 추가함*/
+  margin-bottom: 5px;
 }
