@@ -426,3 +426,33 @@ cite img {
   margin-right: 10px;
   vertical-align: middle; /*화자의 이름을 사진의 우측, 중간 높이에 위치하도록 정렬한다.*/
 }
+
+/*-------------------------------*/
+/*SIGN UP*/
+/*-------------------------------*/
+
+.section-plans {
+  background-color: #f4f4f4;
+}
+
+.plan-box {
+  background-color: #fff;
+  border-radius: 5px; /*모서리를 둥글게*/
+  width: 90%;
+  margin-left: 5%; /*parent 요소를 기준으로 centering 하기 위해서 90%의 나머지인 10%를 양쪽으로 5%씩 분할해줌. 자연히 margin-right은 5%가 됨.*/
+}
+
+.plan-box div {
+  padding: 15px;
+  border-bottom: 1px solid rgb(222, 221, 221);
+}
+
+.plan-price {
+  font-size: 300%;
+  margin-bottom: 10px;
+  font-weight: 100; /*폰트 가늘게!*/
+}
+
+.plan-price-meal {
+  font-size: 80%;
+}
