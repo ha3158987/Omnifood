@@ -220,6 +220,7 @@ header {
   background-size: cover;
   background-position: center;
   height: 100vh;
+  background-attachment: fixed;
 }
 
 .logo {
@@ -381,4 +382,47 @@ header {
 .city-feature {
   /*feature들 사이의 간격을 추가함*/
   margin-bottom: 5px;
+}
+
+/*-------------------------------*/
+/*CUSTOMER TESTIMONIALS*/
+/*-------------------------------*/
+
+.section-testimonials {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url(images/back-customers.jpg); /*백그라운드 검정으로 깔기*/
+  background-size: cover;
+  color: #fff; /*font 컬러*/
+  background-attachment: fixed; /*백그라운드 이미지 고정하기-스크롤해도 상관없이!*/
+}
+
+blockquote {
+  padding: 2%;
+  font-style: italic; /*html webfont(구글폰트링크)에 italic을 이미 추가해두었기 때문에 이렇게 쓸 수 있음 */
+  line-height: 145%;
+  position: relative; /*quotation mark의 위치를 조절해주기 위해서 부모요소인 blockquote가 relative position이어야 함.*/
+  margin-top: 40px;
+}
+
+cite {
+  font-size: 90%;
+  margin-top: 25px;
+  display: block;
+}
+
+blockquote:before {
+  /*css만을 이용해서 text 추가하기*/
+  content: "\201C"; /* ISO Special Characters CSS-tricks에서 원하는 특수문자 ISO코드 가져오기*/
+  font-size: 500%;
+  display: block;
+  position: absolute; /*absolute을 쓸 때는 항상 부모요소(blockquote)가 relative position인지를 확인해야한다.*/
+  top: -5px;
+  left: -3px;
+}
+
+cite img {
+  height: 45px;
+  border-radius: 50%;
+  margin-right: 10px;
+  vertical-align: middle; /*화자의 이름을 사진의 우측, 중간 높이에 위치하도록 정렬한다.*/
 }
