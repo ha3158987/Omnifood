@@ -440,6 +440,7 @@ cite img {
   border-radius: 5px; /*모서리를 둥글게*/
   width: 90%;
   margin-left: 5%; /*parent 요소를 기준으로 centering 하기 위해서 90%의 나머지인 10%를 양쪽으로 5%씩 분할해줌. 자연히 margin-right은 5%가 됨.*/
+  box-shadow: 0 2px 2px rgb(228, 227, 227); /* x-axis, y-axis, blur의 순으로 온다 */
 }
 
 .plan-box div {
@@ -447,12 +448,37 @@ cite img {
   border-bottom: 1px solid rgb(222, 221, 221);
 }
 
+.plan-box div:first-child {
+  background-color: rgb(252, 251, 251);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.plan-box div:last-child {
+  text-align: center; /*sign up now 버튼 센터링하기*/
+  border: 0; /*각 plan box의 sign up 버튼 밑에는 border가 보이지 않도록 */
+}
+
 .plan-price {
   font-size: 300%;
   margin-bottom: 10px;
   font-weight: 100; /*폰트 가늘게!*/
+  color: #e67e22;
+}
+
+.plan-price span {
+  font-size: 30%; /*이 사이즈는 여태까지 우리가 생각해왔던 default 사이즈에서 계산되는 것이 아니라 parent인 .plan-price의 폰트사이즈에서 다시 백분율로 계산이 된다. 즉, 여기서 100%라고 하면 20px의 300%가 똑같이 되는 것. 이건 300%의 30%.*/
+  font-weight: 300; /*부모요소의 프로퍼티를 상속받기 때문에 다르게 하려면 따로 지정해야 함*/
 }
 
 .plan-price-meal {
   font-size: 80%;
+}
+
+.plan-box ul {
+  list-style: none;
+}
+
+.plan-box li {
+  padding: 5px 0; /*top&bottom 5px, left&right 0*/
 }

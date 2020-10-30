@@ -327,23 +327,38 @@
             <!--여기서 특별히 col밑에 div태그 하나를 더 넣은건 백그라운드 색이랑 대비되는 박스를 하나 따로 만들기 위함임. 색상을 구분짓는 가장 쉬운 솔루션이기 때문.-->
             <div>
               <h3>Premium</h3>
-              <p class="plan-price">399$ / month</p>
+              <p class="plan-price">399$ <span>/ month</span></p>
               <p class="plan-price-meal">That’s only 13.30$ per meal</p>
             </div>
             <div>
               <ul>
                 <li>
-                  <ion-icon name="checkmark-outline"></ion-icon>1 meal every day
+                  <ion-icon
+                    class="icon-small"
+                    name="checkmark-outline"
+                  ></ion-icon
+                  >1 meal every day
                 </li>
                 <li>
-                  <ion-icon name="checkmark-outline"></ion-icon>Order 24/7
+                  <ion-icon
+                    class="icon-small"
+                    name="checkmark-outline"
+                  ></ion-icon
+                  >Order 24/7
                 </li>
                 <li>
-                  <ion-icon name="checkmark-outline"></ion-icon>Access to newest
-                  creations
+                  <ion-icon
+                    class="icon-small"
+                    name="checkmark-outline"
+                  ></ion-icon
+                  >Access to newest creations
                 </li>
                 <li>
-                  <ion-icon name="checkmark-outline"></ion-icon>Free delivery
+                  <ion-icon
+                    class="icon-small"
+                    name="checkmark-outline"
+                  ></ion-icon
+                  >Free delivery
                 </li>
               </ul>
             </div>
@@ -356,24 +371,38 @@
           <div class="plan-box">
             <div>
               <h3>Pro</h3>
-              <p class="plan-price">149$ / month</p>
+              <p class="plan-price">149$ <span>/ month</span></p>
               <p class="plan-price-meal">That’s only 14.90$ per meal</p>
             </div>
             <div>
               <ul>
                 <li>
-                  <ion-icon name="checkmark-outline"></ion-icon>1 meal 10
-                  days/month
+                  <ion-icon
+                    class="icon-small"
+                    name="checkmark-outline"
+                  ></ion-icon
+                  >1 meal 10 days/month
                 </li>
                 <li>
-                  <ion-icon name="checkmark-outline"></ion-icon>Order 24/7
+                  <ion-icon
+                    class="icon-small"
+                    name="checkmark-outline"
+                  ></ion-icon
+                  >Order 24/7
                 </li>
                 <li>
-                  <ion-icon name="checkmark-outline"></ion-icon>Access to newest
-                  creations
+                  <ion-icon
+                    class="icon-small"
+                    name="checkmark-outline"
+                  ></ion-icon
+                  >Access to newest creations
                 </li>
                 <li>
-                  <ion-icon name="checkmark-outline"></ion-icon>Free delivery
+                  <ion-icon
+                    class="icon-small"
+                    name="checkmark-outline"
+                  ></ion-icon
+                  >Free delivery
                 </li>
               </ul>
             </div>
@@ -386,21 +415,37 @@
           <div class="plan-box">
             <div>
               <h3>Starter</h3>
-              <p class="plan-price">19$ / meal</p>
-              <p class="plan-price-meal"></p>
+              <p class="plan-price">19$ <span>/ meal</span></p>
+              <p class="plan-price-meal">
+                &nbsp;<!--아무것도 입력하지 않을 경우 스페이스가 없게 나오기 때문에 특수 html을 사용해야 높이가 맞는다. -->
+              </p>
             </div>
+
             <div>
               <ul>
-                <li><ion-icon name="checkmark-outline"></ion-icon>1 meal</li>
                 <li>
-                  <ion-icon name="checkmark-outline"></ion-icon>Order from 8 am
-                  to 12 pm
+                  <ion-icon
+                    class="icon-small"
+                    name="checkmark-outline"
+                  ></ion-icon
+                  >1 meal
                 </li>
                 <li>
-                  <ion-icon name="close-outline"></ion-icon>
+                  <ion-icon
+                    class="icon-small"
+                    name="checkmark-outline"
+                  ></ion-icon
+                  >Order from 8 am to 12 pm
                 </li>
                 <li>
-                  <ion-icon name="checkmark-outline"></ion-icon>Free delivery
+                  <ion-icon class="icon-small" name="close-outline"></ion-icon>
+                </li>
+                <li>
+                  <ion-icon
+                    class="icon-small"
+                    name="checkmark-outline"
+                  ></ion-icon
+                  >Free delivery
                 </li>
               </ul>
             </div>
